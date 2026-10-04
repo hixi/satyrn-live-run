@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # Hermetic engine demo: check + deliver with a trusted command. No model.
+# deliver requires a clean tree, so untracked demo residue (.venv,
+# node_modules, deliver output) must be ignored or removed first.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
