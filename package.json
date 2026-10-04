@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "name": "satyrn-live-run",
+  "version": "0.1.0",
+  "type": "module",
+  "dependencies": {
+    "agent-engine": "file:../satyrn-engine/packages/engine"
+  }
+}

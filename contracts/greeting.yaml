@@ -1,0 +1,4 @@
+id: greeting
+task: Replace the greeting text
+writable_paths:
+  - greeting.py
