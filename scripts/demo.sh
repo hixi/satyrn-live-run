@@ -2,6 +2,9 @@
 # deliver requires a clean tree, so untracked demo residue (.venv,
 # node_modules, deliver output) must be ignored or removed first.
 set -euo pipefail
+# An activated env from another checkout makes `uv run` warn and ignore it;
+# the demo always uses this project's own .venv.
+unset VIRTUAL_ENV
 cd "$(dirname "$0")/.."
 
 echo "== check =="
