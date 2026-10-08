@@ -7,4 +7,12 @@ cd "$(dirname "$0")/.."
 : "${SATYRN_MODEL:?export SATYRN_MODEL=ollama/ornith-1.5:9b}"
 
 pi install ./node_modules/agent-engine
-pi --mode print "/implement Replace the greeting text Files: \`greeting.py\`"
+
+echo "== derive (print mode waits for --go) =="
+OUT=$(pi --mode print "/implement Replace the greeting text Files: \`greeting.py\`")
+echo "$OUT"
+ID=$(printf '%s\n' "$OUT" | grep -oE 'implement-[0-9a-f]{12}' | head -1 || true)
+: "${ID:?no contract id in /implement output}"
+
+echo "== go =="
+pi --mode print "/implement --go $ID"

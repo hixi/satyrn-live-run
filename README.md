@@ -21,8 +21,10 @@ npm install
 ./scripts/demo.sh
 ```
 
-Runs `check`, `derive --help` shape check, and `deliver` with a trusted
-`python -c` command. Verifies the receipt and the candidate ref.
+Runs `check` on the checked-in contract, derives a separate contract under
+`.git/satyrn/contracts/` from a `Files:` request, then delivers the checked-in
+contract with a trusted `python -c` command. Verifies the receipt (`outcome`,
+`head_moved`) and candidate ref.
 
 ## Model demo (needs backend)
 
@@ -32,5 +34,7 @@ export SATYRN_MODEL=ollama/ornith-1.5:9b
 ./scripts/pi-demo.sh
 ```
 
-Installs the adapter once (`pi install ./node_modules/agent-engine`)
-and dispatches `/implement` in print mode.
+Installs the adapter once (`pi install ./node_modules/agent-engine`).
+Print mode has no confirmation UI, so `/implement` is the two steps the
+engine documents: the request derives a contract and prints its id, then
+`/implement --go <id>` dispatches delivery.
